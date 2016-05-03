@@ -34,21 +34,9 @@ int main()
 
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_ShowCursor(0);
-    SDL_Window * _WINDOW = SDL_CreateWindow("BlockWorld"
-                   , SDL_WINDOWPOS_CENTERED
-                   , SDL_WINDOWPOS_CENTERED
-                   , 840
-                   , 640
-                   , SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
     Window window(840,640, "shaderexample");
 
-    int x, y;
-    SDL_PumpEvents();
-    SDL_GetMouseState(&x, &y); 
-    SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
-    SDL_WarpMouseInWindow(_WINDOW, 840/2, 640/2); 
-    SDL_EventState(SDL_MOUSEMOTION, SDL_ENABLE);
-    SDL_PumpEvents(); 
+
 
     Shader shader("src/res/redcube");
     Shader shader2("src/res/whitecube");

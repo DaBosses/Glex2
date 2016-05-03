@@ -1,3 +1,5 @@
+Original Repository is located at https://github.com/elblancoboss/Glex2.git .. we had to move it to an organisation to work as a group.
+
 # Travis CI #
 https://travis-ci.org/elblancoboss/glex
 
