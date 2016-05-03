@@ -1,0 +1,12 @@
+
+#!/bin/bash
+clear
+
+echo ---------- REMOVING 	PREVIOUS 	BUILD ----------
+rm ./src/endcube
+
+echo ---------- MAKING 	NEW 		BUILD ----------
+make
+
+echo ---------- RUNNING 	NEW 		BUILD ----------
+./src/endcube
