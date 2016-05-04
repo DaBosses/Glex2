@@ -88,13 +88,14 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = x86_64-unknown-linux-gnu
 host_triplet = x86_64-unknown-linux-gnu
-bin_PROGRAMS = endcube$(EXEEXT)
+bin_PROGRAMS = shaderexample$(EXEEXT)
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
-	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
-	$(top_srcdir)/m4/ltversion.m4 $(top_srcdir)/m4/lt~obsolete.m4 \
-	$(top_srcdir)/m4/pkg.m4 $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/m4/boost.m4 \
+	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
+	$(top_srcdir)/m4/ltsugar.m4 $(top_srcdir)/m4/ltversion.m4 \
+	$(top_srcdir)/m4/lt~obsolete.m4 $(top_srcdir)/m4/pkg.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 DIST_COMMON = $(srcdir)/Makefile.am $(am__DIST_COMMON)
@@ -104,10 +105,12 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_endcube_OBJECTS = main.$(OBJEXT) cube.$(OBJEXT) shader.$(OBJEXT) \
-	window.$(OBJEXT)
-endcube_OBJECTS = $(am_endcube_OBJECTS)
-endcube_LDADD = $(LDADD)
+am_shaderexample_OBJECTS = main.$(OBJEXT) GameWorld.$(OBJEXT) \
+	GameAssetManager.$(OBJEXT) CubeAsset.$(OBJEXT) \
+	Camera.$(OBJEXT) BoundingBox.$(OBJEXT) GameAsset.$(OBJEXT) \
+	ColourManager.$(OBJEXT)
+shaderexample_OBJECTS = $(am_shaderexample_OBJECTS)
+shaderexample_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
@@ -146,8 +149,8 @@ AM_V_CXXLD = $(am__v_CXXLD_$(V))
 am__v_CXXLD_ = $(am__v_CXXLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(endcube_SOURCES)
-DIST_SOURCES = $(endcube_SOURCES)
+SOURCES = $(shaderexample_SOURCES)
+DIST_SOURCES = $(shaderexample_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -174,14 +177,20 @@ ETAGS = etags
 CTAGS = ctags
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/hussein/4/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/hussein/cai/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/hussein/4/missing autoconf
-AUTOHEADER = ${SHELL} /home/hussein/4/missing autoheader
-AUTOMAKE = ${SHELL} /home/hussein/4/missing automake-1.15
+AUTOCONF = ${SHELL} /home/hussein/cai/missing autoconf
+AUTOHEADER = ${SHELL} /home/hussein/cai/missing autoheader
+AUTOMAKE = ${SHELL} /home/hussein/cai/missing automake-1.15
 AWK = gawk
+BOOST_CPPFLAGS = 
+BOOST_LDPATH = 
+BOOST_PROGRAM_OPTIONS_LDFLAGS = 
+BOOST_PROGRAM_OPTIONS_LDPATH = 
+BOOST_PROGRAM_OPTIONS_LIBS = -lboost_program_options
+BOOST_ROOT = 
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -194,6 +203,7 @@ CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
+DISTCHECK_CONFIGURE_FLAGS =  '--with-boost='
 DLLTOOL = false
 DSYMUTIL = 
 DUMPBIN = 
@@ -212,12 +222,13 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = 
 LIBOBJS = 
-LIBS =  $(gl_LIBS) $(glew_LIBS) $(sdl2_LIBS)
+LIBS =  $(gl_LIBS) $(glew_LIBS) $(sdl2_LIBS) \
+	$(BOOST_THREAD_LIBS) $(BOOST_PROGRAM_OPTIONS_LIBS)
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/hussein/4/missing makeinfo
+MAKEINFO = ${SHELL} /home/hussein/cai/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -243,10 +254,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /home/hussein/4/src
-abs_srcdir = /home/hussein/4/src
-abs_top_builddir = /home/hussein/4
-abs_top_srcdir = /home/hussein/4
+abs_builddir = /home/hussein/cai/src
+abs_srcdir = /home/hussein/cai/src
+abs_top_builddir = /home/hussein/cai
+abs_top_srcdir = /home/hussein/cai
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -280,7 +291,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/hussein/4/install-sh
+install_sh = ${SHELL} /home/hussein/cai/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -302,14 +313,14 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-EXTRA_DIST = camera.h cube.h shader.h transform.h window.h
-endcube_SOURCES = main.cpp cube.cpp shader.cpp window.cpp
+EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h Camera.h BoundingBox.h ColourManager.h
+shaderexample_SOURCES = main.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
-	$(gl_CFLAGS) $(glew_CFLAGS) $(sdl2_CFLAGS)
+	$(gl_CFLAGS) $(glew_CFLAGS) $(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .cpp .lo .o .obj
+.SUFFIXES: .cc .lo .o .obj
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -389,9 +400,9 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-endcube$(EXEEXT): $(endcube_OBJECTS) $(endcube_DEPENDENCIES) $(EXTRA_endcube_DEPENDENCIES) 
-	@rm -f endcube$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(endcube_OBJECTS) $(endcube_LDADD) $(LIBS)
+shaderexample$(EXEEXT): $(shaderexample_OBJECTS) $(shaderexample_DEPENDENCIES) $(EXTRA_shaderexample_DEPENDENCIES) 
+	@rm -f shaderexample$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(shaderexample_OBJECTS) $(shaderexample_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -399,12 +410,16 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/cube.Po
+include ./$(DEPDIR)/BoundingBox.Po
+include ./$(DEPDIR)/Camera.Po
+include ./$(DEPDIR)/ColourManager.Po
+include ./$(DEPDIR)/CubeAsset.Po
+include ./$(DEPDIR)/GameAsset.Po
+include ./$(DEPDIR)/GameAssetManager.Po
+include ./$(DEPDIR)/GameWorld.Po
 include ./$(DEPDIR)/main.Po
-include ./$(DEPDIR)/shader.Po
-include ./$(DEPDIR)/window.Po
 
-.cpp.o:
+.cc.o:
 	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
 	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
 	$(am__mv) $$depbase.Tpo $$depbase.Po
@@ -412,7 +427,7 @@ include ./$(DEPDIR)/window.Po
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ $<
 
-.cpp.obj:
+.cc.obj:
 	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
 	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ `$(CYGPATH_W) '$<'` &&\
 	$(am__mv) $$depbase.Tpo $$depbase.Po
@@ -420,7 +435,7 @@ include ./$(DEPDIR)/window.Po
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-.cpp.lo:
+.cc.lo:
 	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.lo$$||'`;\
 	$(LTCXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
 	$(am__mv) $$depbase.Tpo $$depbase.Plo

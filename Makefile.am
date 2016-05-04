@@ -1,3 +1,2 @@
-
 ACLOCAL_AMFLAGS = -I m4 --install
-SUBDIRS=src src/res
+SUBDIRS=shaders src

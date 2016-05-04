@@ -89,10 +89,11 @@ build_triplet = x86_64-unknown-linux-gnu
 host_triplet = x86_64-unknown-linux-gnu
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
-	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
-	$(top_srcdir)/m4/ltversion.m4 $(top_srcdir)/m4/lt~obsolete.m4 \
-	$(top_srcdir)/m4/pkg.m4 $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/m4/boost.m4 \
+	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
+	$(top_srcdir)/m4/ltsugar.m4 $(top_srcdir)/m4/ltversion.m4 \
+	$(top_srcdir)/m4/lt~obsolete.m4 $(top_srcdir)/m4/pkg.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 DIST_COMMON = $(srcdir)/Makefile.am $(top_srcdir)/configure \
@@ -204,14 +205,20 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/hussein/4/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/hussein/cai/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/hussein/4/missing autoconf
-AUTOHEADER = ${SHELL} /home/hussein/4/missing autoheader
-AUTOMAKE = ${SHELL} /home/hussein/4/missing automake-1.15
+AUTOCONF = ${SHELL} /home/hussein/cai/missing autoconf
+AUTOHEADER = ${SHELL} /home/hussein/cai/missing autoheader
+AUTOMAKE = ${SHELL} /home/hussein/cai/missing automake-1.15
 AWK = gawk
+BOOST_CPPFLAGS = 
+BOOST_LDPATH = 
+BOOST_PROGRAM_OPTIONS_LDFLAGS = 
+BOOST_PROGRAM_OPTIONS_LDPATH = 
+BOOST_PROGRAM_OPTIONS_LIBS = -lboost_program_options
+BOOST_ROOT = 
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -224,6 +231,7 @@ CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
+DISTCHECK_CONFIGURE_FLAGS =  '--with-boost='
 DLLTOOL = false
 DSYMUTIL = 
 DUMPBIN = 
@@ -247,7 +255,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/hussein/4/missing makeinfo
+MAKEINFO = ${SHELL} /home/hussein/cai/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -273,10 +281,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /home/hussein/4
-abs_srcdir = /home/hussein/4
-abs_top_builddir = /home/hussein/4
-abs_top_srcdir = /home/hussein/4
+abs_builddir = /home/hussein/cai
+abs_srcdir = /home/hussein/cai
+abs_top_builddir = /home/hussein/cai
+abs_top_srcdir = /home/hussein/cai
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -310,7 +318,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/hussein/4/install-sh
+install_sh = ${SHELL} /home/hussein/cai/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -333,7 +341,7 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 ACLOCAL_AMFLAGS = -I m4 --install
-SUBDIRS = src src/res
+SUBDIRS = shaders src
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 

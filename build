@@ -3,10 +3,10 @@
 clear
 
 echo ---------- REMOVING 	PREVIOUS 	BUILD ----------
-rm ./src/endcube
+rm ./src/shaderexample
 
 echo ---------- MAKING 	NEW 		BUILD ----------
 make
 
 echo ---------- RUNNING 	NEW 		BUILD ----------
-./src/endcube
+./src/shaderexample
