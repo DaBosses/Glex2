@@ -48,16 +48,18 @@ GameAssetManager::~GameAssetManager() {
 /**
  * Adds a GameAsset to the scene graph.
  */
-void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) {
+void GameAssetManager::AddAsset(std::shared_ptr<GameAsset> the_asset) 
+{
   draw_list.push_back(the_asset);
 }
 
 /**
  * Draws each GameAsset in the scene graph.
  */
-void GameAssetManager::Draw() {
-  for(auto ga: draw_list) {
-
+void GameAssetManager::Draw() 
+{
+  for(auto ga: draw_list) 
+  {
 
 /// before drawing an asset , update the matrix values in the translate shader
 	glUniformMatrix4fv(projection_matrix_link, 1, GL_FALSE, &projection_matrix[0][0]);
@@ -65,7 +67,6 @@ void GameAssetManager::Draw() {
 
 	translate_matrix= ga->GetModelTransformation();
 	glUniformMatrix4fv(translate_matrix_link, 1, GL_FALSE, &translate_matrix[0][0]);
-
 
 		bounding_box1_max = ga->GetMaxAndMin(1);
 		bounding_box1_min = ga->GetMaxAndMin(2);
@@ -111,7 +112,8 @@ GLuint GameAssetManager::CreateGLProgram(std::string & vertex_shader
 }
 
 
-GLuint GameAssetManager::CreateGLESShader(GLenum type, std::string & shader) {
+GLuint GameAssetManager::CreateGLESShader(GLenum type, std::string & shader) 
+{
   GLuint shader_token;
   GLint shader_ok;
   auto source = ReadShader(shader);
@@ -145,7 +147,8 @@ GLuint GameAssetManager::CreateGLESShader(GLenum type, std::string & shader) {
   return shader_token;
 }
 
-std::pair<GLchar *, GLint> GameAssetManager::ReadShader(std::string & shader) {
+std::pair<GLchar *, GLint> GameAssetManager::ReadShader(std::string & shader) 
+{
   std::ifstream input_file;
   GLint length;
   input_file.open(shader, std::ios::in);
@@ -162,15 +165,18 @@ std::pair<GLchar *, GLint> GameAssetManager::ReadShader(std::string & shader) {
   return std::make_pair(buffer, length);
 }
 
-GameAssetManager::GameAssetManager(GameAssetManager const& the_manager) {
+GameAssetManager::GameAssetManager(GameAssetManager const& the_manager) 
+{
   // TODO: implement this
 }
 
-GameAssetManager::GameAssetManager(GameAssetManager const&& the_manager) {
+GameAssetManager::GameAssetManager(GameAssetManager const&& the_manager) 
+{
   // TODO: implement this
 }
 
-void GameAssetManager::operator=(GameAssetManager const& the_manager) {
+void GameAssetManager::operator=(GameAssetManager const& the_manager) 
+{
   // TODO: implement this
 }
 

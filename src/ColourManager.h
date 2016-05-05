@@ -4,7 +4,8 @@
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
-class ColourManager {
+class ColourManager 
+{
 	public:
 		ColourManager();
 

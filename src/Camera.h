@@ -3,8 +3,8 @@
 
 #ifndef SRC_CAMERA_H_
 #define SRC_CAMERA_H_
-class Camera{
-
+class Camera
+{
 public:
 	Camera();
 	glm::mat4 UpdateCameraPosition(Input input_direction, int mouse_x, int mouse_y);
@@ -25,10 +25,6 @@ private:
 	float mouse_delta_y;
 
 	float camera_movement_speed;
-
-
 };
 
-
 #endif
-

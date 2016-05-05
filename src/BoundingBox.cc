@@ -85,10 +85,8 @@ void BoundingBox::Rotate(glm::vec3 rotate_speed)
 		
 
 	glm::vec3 new_rotation;
-
-		new_rotation = this->rotation + rotate_speed;
+	new_rotation = this->rotation + rotate_speed;
 	
-
 	this->rotation = new_rotation;
 }
 

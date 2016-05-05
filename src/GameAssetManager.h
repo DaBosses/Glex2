@@ -16,8 +16,9 @@
 #include "Camera.h"
 
 
-class GameAssetManager {
- public:
+class GameAssetManager 
+{
+  public:
   explicit GameAssetManager(ApplicationMode); // constructor
   virtual ~GameAssetManager();
   GameAssetManager(GameAssetManager const&); // copy constructor
@@ -39,13 +40,13 @@ class GameAssetManager {
   Camera camera;
 
 // variables to gather the bounds of two bounding boxes to check collisions
-  	    glm::vec3 bounding_box1_max;
-		glm::vec3 bounding_box1_min;
-		glm::vec3 bounding_box2_max;
-		glm::vec3 bounding_box2_min;
+  glm::vec3 bounding_box1_max;
+	glm::vec3 bounding_box1_min;
+	glm::vec3 bounding_box2_max;
+	glm::vec3 bounding_box2_min;
 
-		glm::vec3 bounding_box1_position;
-		glm::vec3 bounding_box2_position;
+	glm::vec3 bounding_box1_position;
+	glm::vec3 bounding_box2_position;
 
 // variables to communicate with the shader(Camera)
   GLuint translate_matrix_link;
