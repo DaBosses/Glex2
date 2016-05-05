@@ -127,6 +127,7 @@ void BoundingBox::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding
         {
             std::cout << "Collision between 2 boxes" << std::endl;
             std::cout << "boxes changing direction" << std::endl;
+            std::cout << "" << std::endl;
             glm::vec3 reverse_speed = this->speed;
             reverse_speed = reverse_speed + reverse_speed;
             this->speed -= reverse_speed;
