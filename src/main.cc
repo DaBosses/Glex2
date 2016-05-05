@@ -175,10 +175,10 @@ int main(int argc, char ** argv)
 
     	if(keyboard_state[SDL_SCANCODE_A])
     	{
-    		input_direction = LEFT;
-        }
-        else if(keyboard_state[SDL_SCANCODE_S])
-        {
+    	input_direction = LEFT;
+      }
+      else if(keyboard_state[SDL_SCANCODE_S])
+      {
    		input_direction = DOWN;
     	}
     	else if(keyboard_state[SDL_SCANCODE_D])

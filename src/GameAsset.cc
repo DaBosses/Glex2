@@ -12,8 +12,8 @@ glm::mat4 GameAsset::GetModelTransformation()
 	return bounding_box->GetModelTransformation();
 }
 
-glm::vec3 GameAsset::GetMaxAndMin(int type){
-
+glm::vec3 GameAsset::GetMaxAndMin(int type)
+{
     if (type == 1)
     {
         return bounding_box->GetMaxAndMin(1);
@@ -31,6 +31,7 @@ void GameAsset::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding_b
 }
 
 
-glm::vec3 GameAsset::GetVec3(){
+glm::vec3 GameAsset::GetVec3()
+{
     return bounding_box->GetVec3();
 }

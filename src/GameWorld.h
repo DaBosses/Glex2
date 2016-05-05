@@ -12,17 +12,14 @@
 #include "ColourManager.h"
 
 
-class GameWorld {
+class GameWorld 
+{
  public:
   
   GameWorld(ApplicationMode);
 
- 
-  void Draw();
-
-
-void UpdateCameraPosition(Input, int mouse_x, int mouse_y);
-
+	void Draw();
+  	void UpdateCameraPosition(Input, int mouse_x, int mouse_y);
 
  private:
   ColourManager colour_manager;

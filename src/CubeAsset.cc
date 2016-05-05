@@ -17,7 +17,7 @@ CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c,int type, float scale, glm::vec3 r
 
   // model coordinates, origin at centre.
   GLfloat vertex_buffer_data [] {
--0.5f + position.x, -0.5f + position.y, -0.5f + position.z,
+    -0.5f + position.x, -0.5f + position.y, -0.5f + position.z,
 		-0.5f + position.x,  0.5f + position.y, -0.5f + position.z,
 		 0.5f + position.x, -0.5f + position.y, -0.5f + position.z,
 		 0.5f + position.x,  0.5f + position.y, -0.5f + position.z,
@@ -60,22 +60,18 @@ CubeAsset::CubeAsset(glm::vec3 p, glm::vec3 c,int type, float scale, glm::vec3 r
   };
   element_buffer_length = sizeof(element_buffer);
 
-
-
   // Transfer buffers to the GPU
-  //
 
   // create buffer
   glGenBuffers(1, &vertex_buffer_token);
+
   // immediately bind the buffer and transfer the data
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_token);
   glBufferData(GL_ARRAY_BUFFER, vertex_buffer_length, vertex_buffer_data, GL_STATIC_DRAW);
 
-
 	glGenBuffers(1, &colour_buffer_token);
 	glBindBuffer(GL_ARRAY_BUFFER, colour_buffer_token);
 	glBufferData(GL_ARRAY_BUFFER, colour_buffer_length, g_colour_buffer_data, GL_STATIC_DRAW);
-
 
   glGenBuffers(1, &element_buffer_token);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer_token);
@@ -88,6 +84,7 @@ CubeAsset::~CubeAsset() {
 #ifdef DEBUG
 #define checkGLError() checkError(__FILE__, __LINE__)
 #else
+
 // define symbol to be nothing
 #define checkGLError()
 #endif
@@ -113,7 +110,8 @@ void CubeAsset::Draw(GLuint program_token) {
   GLint validation_ok;
   glValidateProgram(program_token);
   glGetProgramiv(program_token, GL_VALIDATE_STATUS, &validation_ok);
-  if(!validation_ok) {
+  if(!validation_ok) 
+  {
     GLint maxLength = 0;
     glGetProgramiv(program_token, GL_INFO_LOG_LENGTH, &maxLength);
 

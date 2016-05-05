@@ -1,9 +1,8 @@
 #include "Camera.h"
 #include <glm/ext.hpp>
 
-Camera::Camera(){
-
-
+Camera::Camera()
+{
  	  camera_position = glm::vec3(0.0, 0.0, 0.0);
 	  camera_direction = glm::vec3(0,0,0);
 	  camera_right = glm::vec3(0,0,0);
