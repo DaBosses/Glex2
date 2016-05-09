@@ -14,7 +14,7 @@ https://travis-ci.org/DaBosses/Glex2
 
 On Fedora 22 or later you can install these using a single command (as root):
 
-> $ yum install boost-* glew-devel SDL2_* glm-devel
+> $ yum install boost-* glew-devel SDL2_* glm-devel python-devel
 
 # Building #
 
