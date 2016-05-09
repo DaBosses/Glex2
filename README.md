@@ -11,6 +11,7 @@ https://travis-ci.org/DaBosses/Glex2
 * [GLEW](http://glew.sourceforge.net/)
 * [SDL2](https://www.libsdl.org/)
 * [GLM](http://glm.g-truc.net/)
+* Python Development Tools
 
 On Fedora 22 or later you can install these using a single command (as root):
 
