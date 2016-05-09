@@ -6,7 +6,9 @@
 #include <utility>
 #include <ostream>
 
-class BoundingBox {
+//Adding bounding box
+class BoundingBox 
+{
 	public:
 		BoundingBox(glm::vec3, int, float, glm::vec3, glm::vec3);
 
@@ -18,7 +20,6 @@ class BoundingBox {
 		void Scale(float);
 		void Rotate(glm::vec3);
 		void CheckCollision(glm::vec3, glm::vec3, glm::vec3, glm::vec3);
-
 
 	private:
 		glm::vec3 position;
