@@ -88,7 +88,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = shaderexample$(EXEEXT)
+bin_PROGRAMS = bosscube$(EXEEXT)
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/boost.m4 \
@@ -105,12 +105,12 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_shaderexample_OBJECTS = main.$(OBJEXT) GameWorld.$(OBJEXT) \
+am_bosscube_OBJECTS = main.$(OBJEXT) GameWorld.$(OBJEXT) \
 	GameAssetManager.$(OBJEXT) CubeAsset.$(OBJEXT) \
 	Camera.$(OBJEXT) BoundingBox.$(OBJEXT) GameAsset.$(OBJEXT) \
 	ColourManager.$(OBJEXT)
-shaderexample_OBJECTS = $(am_shaderexample_OBJECTS)
-shaderexample_LDADD = $(LDADD)
+bosscube_OBJECTS = $(am_bosscube_OBJECTS)
+bosscube_LDADD = $(LDADD)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -149,8 +149,8 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(shaderexample_SOURCES)
-DIST_SOURCES = $(shaderexample_SOURCES)
+SOURCES = $(bosscube_SOURCES)
+DIST_SOURCES = $(bosscube_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -314,7 +314,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h Camera.h BoundingBox.h ColourManager.h
-shaderexample_SOURCES = main.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc
+bosscube_SOURCES = main.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	$(gl_CFLAGS) $(glew_CFLAGS) $(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
 all: all-am
@@ -400,9 +400,9 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-shaderexample$(EXEEXT): $(shaderexample_OBJECTS) $(shaderexample_DEPENDENCIES) $(EXTRA_shaderexample_DEPENDENCIES) 
-	@rm -f shaderexample$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(shaderexample_OBJECTS) $(shaderexample_LDADD) $(LIBS)
+bosscube$(EXEEXT): $(bosscube_OBJECTS) $(bosscube_DEPENDENCIES) $(EXTRA_bosscube_DEPENDENCIES) 
+	@rm -f bosscube$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(bosscube_OBJECTS) $(bosscube_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
