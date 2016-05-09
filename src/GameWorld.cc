@@ -17,9 +17,6 @@ GameWorld::GameWorld (ApplicationMode mode) {
   //Box Enlargment
   asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(6.0, 10.0, 3.0),colour_manager.GetColour("random"), 3, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
 
-  //***
-  asset_manager->AddAsset(std::make_shared<CubeAsset>(glm::vec3(10.0, 10.0, 3.0),colour_manager.GetColour("random"), 3, 2, 5, glm::vec3(0.0,0.0,0.0), glm::vec3(0.0,0.0,0.0)));
-
 }
 
   // calls the draw method in GameAssetManager.cc
