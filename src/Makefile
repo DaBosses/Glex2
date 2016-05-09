@@ -313,8 +313,8 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h Camera.h BoundingBox.h ColourManager.h PythonBinding.h
-bosscube_SOURCES = main.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBinding.o
+EXTRA_DIST = GameWorld.h GameAssetManager.h GameAsset.h CubeAsset.h Camera.h BoundingBox.h ColourManager.h PythonBindings.h
+bosscube_SOURCES = main.cc GameWorld.cc GameAssetManager.cc CubeAsset.cc Camera.cc BoundingBox.cc GameAsset.cc ColourManager.cc PythonBindings.o
 AM_CPPFLAGS = -DGL_GLEXT_PROTOTYPES -DGL3_PROTOTYPES -std=c++11 \
 	-I/usr/include/python2.7 $(gl_CFLAGS) $(glew_CFLAGS) \
 	$(sdl2_CFLAGS) $(BOOST_CPPFLAGS)
