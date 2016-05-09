@@ -29,7 +29,11 @@ glm::mat4 BoundingBox::GetModelTransformation()
 	{
 		this->Translate(glm::vec3(this->speed.x,this->speed.y,this->speed.z));
 	}
-
+	else if(this->type == 5)
+	{
+		this->Scale(0.01f);
+		this->Rotate(glm::vec3(0.05f, 0.01f, 0.01f));
+	}
 
     //Scale rotate and translate a bounding box and return the updated matrix.
     glm::mat4 scale_matrix = glm::scale(glm::vec3(this->scale, this->scale, this->scale));
