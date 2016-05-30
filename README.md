@@ -1,3 +1,5 @@
+This game was built from https://github.com/elblancoboss/glex
+
 # Travis CI #
 [![Build Status](https://travis-ci.org/DaBosses/Glex2.svg?branch=master)](https://travis-ci.org/DaBosses/Glex2)
 https://travis-ci.org/DaBosses/Glex2
