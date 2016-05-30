@@ -1,5 +1,12 @@
 #include "BoundingBox.h"
 
+// CONSTRUCTOR FOR BOUNDINGBOX, SETS THE POSITION AND TYPE.
+// Type is what kind of animation the Asset/Box will perform.
+//	-- 1 = Translate slowly on X axis
+//	-- 2 = Rotate slowly on all axis
+//	-- 3 = Scale the asset slowly
+//	-- 4 = Translate on a custom speed value
+//	-- 5 = Scale and rotate at the same time
 BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 rotation, glm::vec3 speed)
 {
 	this->position = position -= glm::vec3(0.5f,0.5f,0.5f);
@@ -11,6 +18,9 @@ BoundingBox::BoundingBox(glm::vec3 position, int type, float scale , glm::vec3 r
 	std::cout << "Initialised BoundingBox at point: [" << position.x << "," << position.y << "," << position.z << "]" << std::endl;
 }
 
+// Called every frame
+// Handles our animation types
+// Returns the model matrix which is used to present the asset to the camera
 glm::mat4 BoundingBox::GetModelTransformation()
 {
     if (this->type == 1)
@@ -48,28 +58,26 @@ glm::mat4 BoundingBox::GetModelTransformation()
 }
 
 
-/**
- * Used to translate by a certain speed
- */
+/************************************ 
+ / Used to translate by a certain speed
+************************************/
 void BoundingBox::Translate(glm::vec3 translate_speed)
 {
-
-
+	// Updates the position of the asset
 	glm::vec3 new_position;
-	
-		new_position = this->position + translate_speed;
-
-
+	new_position = this->position + translate_speed;
 	this->position = new_position;
 }
 
 
-
+/************************************ 
+// Scales the asset using the pre-defined speed as set in the CONSTRUCTOR at the top
+************************************/
 void BoundingBox::Scale(float scale_speed)
 {
- 
-
 	float new_scale;
+
+	// This will scale until size 5, then reset to 1
 	if(this->scale > 5.0f)
 	{
 		new_scale = 1.0f;
@@ -83,9 +91,12 @@ void BoundingBox::Scale(float scale_speed)
 }
 
 
-
+/************************************ 
+// Again, rotates using the speed as set in the CONSTRUCTOR at the top
+************************************/
 void BoundingBox::Rotate(glm::vec3 rotate_speed)
 {
+	// Updates the rotation of the asset
 	glm::vec3 new_rotation;
 	new_rotation = this->rotation + rotate_speed;
 	
@@ -93,33 +104,37 @@ void BoundingBox::Rotate(glm::vec3 rotate_speed)
 }
 
 
-
+// Returns the exact location of the object if needed (optional use in other methods, not important)
 glm::vec3 BoundingBox::GetVec3()
 {
 	return position;
 }
 
-
+/************************************ 
+// Gets the minimum or maximum bounds of the asset
+************************************/
 glm::vec3 BoundingBox::GetMaxAndMin(int type)
 {
     glm::vec3 bounds;
 
     if (type == 1)
     {
-    // return max bounds
-    bounds = this->position += glm::vec3(1.1f * this-> scale ,1.1f* this-> scale,1.1f* this-> scale);
+	    // return max bounds
+	    bounds = this->position += glm::vec3(1.1f * this-> scale ,1.1f* this-> scale,1.1f* this-> scale);
 
     }
     else if (type == 2)
     {
-    // return minimum bounds
-     bounds = this->position += glm::vec3(-1.1f* this-> scale,-1.1f* this-> scale,-1.1f* this-> scale);
+	    // return minimum bounds
+	     bounds = this->position += glm::vec3(-1.1f* this-> scale,-1.1f* this-> scale,-1.1f* this-> scale);
     }
 	return bounds;
 }
 
 
-
+/************************************ 
+//  Handles our collision detection on all faces of the bounding box
+************************************/
 void BoundingBox::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding_box1_min, glm::vec3 bounding_box2_max, glm::vec3 bounding_box2_min)
 {
     //Check if Box1's max is greater than Box2's min and Box1's min is less than Box2's max
@@ -133,8 +148,5 @@ void BoundingBox::CheckCollision(glm::vec3 bounding_box1_max, glm::vec3 bounding
             glm::vec3 reverse_speed = this->speed;
             reverse_speed = reverse_speed + reverse_speed;
             this->speed -= reverse_speed;
-        }
-    else
-        {
         }
 }
